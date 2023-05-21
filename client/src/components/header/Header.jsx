@@ -4,20 +4,22 @@ import Search from "./Search";
 const StyledHeader = styled(AppBar)`
   background-color: #2874f0;
   height: 55px;
+  box-shadow: none;
 `;
 const Brand = styled(Box)`
-  margin-left: 12%;
+  margin-left: 13%;
   line-height: 0px;
 `;
 
 const SubHeading = styled(Typography)`
-  font-size: 10px;
+  font-size: 11px;
   font-style: italic;
+  margin-top: -1px;
 `;
 const PlusIcon = styled(`img`)({
   width: "10px",
   height: "10px",
-  marginLeft: "4px",
+  marginLeft: "1px",
 });
 const Header = () => {
   const logoURL =
@@ -26,13 +28,16 @@ const Header = () => {
     "https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/plus_aef861.png";
   return (
     <StyledHeader>
-      <Toolbar>
+      <Toolbar style={{ minHeight: "55px" }}>
         <Brand>
           <img src={logoURL} alt="flipkart logo" style={{ width: "75px" }} />
           <Box style={{ display: "flex" }}>
             <SubHeading>
               Explore&nbsp;
-              <Box component="span" style={{ color: "#ffe500" }}>
+              <Box
+                component="span"
+                style={{ color: "#ffe500", fontWeight: "600" }}
+              >
                 Plus
               </Box>
             </SubHeading>
