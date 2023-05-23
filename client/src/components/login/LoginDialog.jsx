@@ -53,6 +53,13 @@ const OtpButton = styled(Button)`
   height: 48px;
   border-radius: 2px;
 `;
+const RegisterButton = styled(Button)`
+  text-transform: none;
+  background-color: #fb641b;
+  color: #fff;
+  height: 48px;
+  border-radius: 2px;
+`;
 
 const PolicyText = styled(Typography)`
   font-size: 12px;
@@ -85,7 +92,17 @@ const LoginDialog = ({ open, setOpen }) => {
       subHeading: "Sign up with your mobile number to get started",
     },
   };
-
+  const registerInitialValues = {
+    firstname: "",
+    lastname: "",
+    username: "",
+    email: "",
+    password: "",
+    phone: "",
+  };
+  const [registerValues, setRegisterValues] = React.useState(
+    registerInitialValues
+  );
   const [account, toggleAccount] = React.useState(accountState.login);
   const toggleDialog = () => {
     if (account.state === "login") {
@@ -94,6 +111,12 @@ const LoginDialog = ({ open, setOpen }) => {
       toggleAccount(accountState.login);
     }
   };
+
+  const inputChange = (e) => {
+    setRegisterValues({ ...registerValues, [e.target.name]: e.target.value });
+    console.log(registerValues);
+  };
+
   return (
     <Dialog
       open={open}
@@ -130,20 +153,44 @@ const LoginDialog = ({ open, setOpen }) => {
             <LoginWrapper>
               <TextField
                 variant="standard"
+                name="firstname"
                 label="Enter First Name"
+                onChange={(e) => inputChange(e)}
               ></TextField>
-              <TextField variant="standard" label="Enter Last Name"></TextField>
-              <TextField variant="standard" label="Create Username"></TextField>
-              <TextField variant="standard" label="Enter Email"></TextField>
-              <TextField variant="standard" label="Create Password"></TextField>
               <TextField
                 variant="standard"
-                label="Enter Phone Number"
+                name="lastname"
+                label="Enter Last Name"
+                onChange={(e) => inputChange(e)}
               ></TextField>
-              <OtpButton variant="contained">Request OTP</OtpButton>
-              <OtpButton variant="contained" onClick={toggleDialog}>
+              <TextField
+                variant="standard"
+                name="username"
+                label="Create Username"
+                onChange={(e) => inputChange(e)}
+              ></TextField>
+              <TextField
+                variant="standard"
+                name="email"
+                label="Enter Email"
+                onChange={(e) => inputChange(e)}
+              ></TextField>
+              <TextField
+                variant="standard"
+                name="password"
+                label="Create Password"
+                onChange={(e) => inputChange(e)}
+              ></TextField>
+              <TextField
+                variant="standard"
+                name="phone"
+                label="Enter Phone Number"
+                onChange={(e) => inputChange(e)}
+              ></TextField>
+              <RegisterButton variant="contained">Continue</RegisterButton>
+              <LoginButton onClick={toggleDialog}>
                 Existing User? Log in
-              </OtpButton>
+              </LoginButton>
             </LoginWrapper>
           )}
         </Box>
