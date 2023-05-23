@@ -1,6 +1,16 @@
 import express from "express";
+import dotenv from "dotenv";
+import Connection from "./mongo/db.js";
 const app = express();
+app.use(express.json());
 const PORT = process.env.PORT || 8080;
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+dotenv.config({ path: "../.env" });
+
+const initialize = async () => {
+  await Connection(process.env.MONGO_URL);
+  app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+  });
+};
+
+initialize();
