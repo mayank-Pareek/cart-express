@@ -1,4 +1,4 @@
-import React, { useSate } from "react";
+import React, { useState } from "react";
 import {
   Box,
   Button,
@@ -7,6 +7,8 @@ import {
   Typography,
   styled,
 } from "@mui/material";
+
+import { authenticateSignup } from "../../services/api";
 
 const DialogContainer = styled(Box)`
   height: 70vh;
@@ -114,7 +116,11 @@ const LoginDialog = ({ open, setOpen }) => {
 
   const inputChange = (e) => {
     setRegisterValues({ ...registerValues, [e.target.name]: e.target.value });
-    console.log(registerValues);
+  };
+
+  const registerUser = async () => {
+    let response = await authenticateSignup(registerValues);
+    console.log(response);
   };
 
   return (
@@ -187,7 +193,9 @@ const LoginDialog = ({ open, setOpen }) => {
                 label="Enter Phone Number"
                 onChange={(e) => inputChange(e)}
               ></TextField>
-              <RegisterButton variant="contained">Continue</RegisterButton>
+              <RegisterButton variant="contained" onClick={registerUser}>
+                Continue
+              </RegisterButton>
               <LoginButton onClick={toggleDialog}>
                 Existing User? Log in
               </LoginButton>
