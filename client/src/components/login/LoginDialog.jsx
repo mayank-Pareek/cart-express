@@ -120,7 +120,8 @@ const LoginDialog = ({ open, setOpen }) => {
 
   const registerUser = async () => {
     let response = await authenticateSignup(registerValues);
-    console.log(response);
+    if (!response) return;
+    handleClose();
   };
 
   return (
