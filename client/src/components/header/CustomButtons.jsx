@@ -1,11 +1,15 @@
 import { Box, Button, Typography } from "@mui/material";
 import { ShoppingCart } from "@mui/icons-material";
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import styled from "@emotion/styled";
 
 ///components
 import LoginDialog from "../login/LoginDialog";
 
+//context
+import { DataContext } from "../../context/DataProvider";
+
+//styles
 const Wrapper = styled(Box)`
   align-items: center;
   display: flex;
@@ -32,14 +36,19 @@ const LoginButton = styled(Button)`
 `;
 const CustomButtons = () => {
   const [isOpen, setOpen] = React.useState(false);
+  const {account} = useContext(DataContext);
   const openDialog = () => {
     setOpen(true);
   };
   return (
     <Wrapper>
-      <LoginButton variant="contained" onClick={openDialog}>
-        Login
-      </LoginButton>
+      {account ? (
+        <Typography>{account}</Typography>
+      ) : (
+        <LoginButton variant="contained" onClick={openDialog}>
+          Login
+        </LoginButton>
+      )}
       <Typography style={{ marginTop: "3px", width: "135px" }}>
         Become a Seller
       </Typography>
@@ -48,7 +57,7 @@ const CustomButtons = () => {
         <ShoppingCart />
         <Typography>Cart</Typography>
       </CartContainer>
-      <LoginDialog open={isOpen} setOpen={setOpen}/>
+      <LoginDialog open={isOpen} setOpen={setOpen} />
     </Wrapper>
   );
 };

@@ -1,7 +1,6 @@
 import { AppBar, Toolbar, Box, styled, Typography } from "@mui/material";
 import Search from "./Search";
 import CustomButtons from "./CustomButtons";
-
 const StyledHeader = styled(AppBar)`
   background-color: #2874f0;
   height: 55px;

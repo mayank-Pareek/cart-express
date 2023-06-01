@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import {
   Box,
   Button,
@@ -9,7 +9,7 @@ import {
 } from "@mui/material";
 
 import { authenticateSignup } from "../../services/api";
-
+import { DataContext } from "../../context/DataProvider";
 const DialogContainer = styled(Box)`
   height: 70vh;
   width: 90vh;
@@ -81,7 +81,7 @@ const LoginDialog = ({ open, setOpen }) => {
     setOpen(false);
     toggleAccount(accountState.login);
   };
-
+  const {setAccount} = useContext(DataContext);
   const accountState = {
     login: {
       state: "login",
@@ -102,9 +102,7 @@ const LoginDialog = ({ open, setOpen }) => {
     password: "",
     phone: "",
   };
-  const [registerValues, setRegisterValues] = React.useState(
-    registerInitialValues
-  );
+  const [signup, setSignup] = React.useState(registerInitialValues);
   const [account, toggleAccount] = React.useState(accountState.login);
   const toggleDialog = () => {
     if (account.state === "login") {
@@ -115,13 +113,14 @@ const LoginDialog = ({ open, setOpen }) => {
   };
 
   const inputChange = (e) => {
-    setRegisterValues({ ...registerValues, [e.target.name]: e.target.value });
+    setSignup({ ...signup, [e.target.name]: e.target.value });
   };
 
   const registerUser = async () => {
-    let response = await authenticateSignup(registerValues);
+    let response = await authenticateSignup(signup);
     if (!response) return;
     handleClose();
+    setAccount(signup.firstname);
   };
 
   return (
