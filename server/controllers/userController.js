@@ -1,4 +1,4 @@
-import User from "../models/user";
+import User from "../models/userSchema.js";
 export const userSignup = async (req, res) => {
   try {
     const userExist = await User.findOne({ username: req.body.username });
