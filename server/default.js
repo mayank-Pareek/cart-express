@@ -1,5 +1,5 @@
 import { products } from "./static/data.js";
-import Product from "./models/Product.js";
+import Product from "./models/productSchema.js";
 const DefaultData = async() => {
   try {
     await Product.insertMany(products);
