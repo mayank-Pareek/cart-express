@@ -24,7 +24,7 @@ export const userLogin = async (req, res) => {
       password: req.body.password,
     });
     if (user) {
-      return res.status(200).json(`${username} logged in successfully`);
+      return res.status(200).json({ data: user });
     } else {
       return res.status(401).json("Invalid credentials");
     }

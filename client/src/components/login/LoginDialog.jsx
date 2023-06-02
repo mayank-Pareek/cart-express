@@ -76,11 +76,20 @@ const CreateAccountText = styled(Typography)`
   cursor: pointer;
 `;
 
+const LoginError = styled(Typography)`
+  font-size: 10px;
+  color: #ff6161;
+  line-height: 0;
+  margin-top: 10px;
+  font-weight: 600;
+`;
+
 //Function
 const LoginDialog = ({ open, setOpen }) => {
   const handleClose = () => {
     setOpen(false);
     toggleAccount(accountState.login);
+    setError(false);
   };
 
   const accountState = {
@@ -111,6 +120,7 @@ const LoginDialog = ({ open, setOpen }) => {
   const [account, toggleAccount] = React.useState(accountState.login);
   const { setAccount } = useContext(DataContext);
   const [login, setLogin] = useState(loginInitialValues);
+  const [error, setError] = useState(false);
   const toggleDialog = () => {
     if (account.state === "login") {
       toggleAccount(accountState.register);
@@ -134,9 +144,12 @@ const LoginDialog = ({ open, setOpen }) => {
 
   const loginUser = async () => {
     let response = await authenticateLogin(login);
-    if (!response) return;
-    // handleClose();
-    // setAccount(signup.firstname);
+    if (response.status === 200) {
+      handleClose();
+      setAccount(response.data.data.firstname);
+    } else {
+      setError(true);
+    }
   };
 
   return (
@@ -157,7 +170,7 @@ const LoginDialog = ({ open, setOpen }) => {
             <LoginWrapper>
               <TextField
                 variant="standard"
-                label="Enter Email/Mobile number"
+                label="Enter username"
                 name="username"
                 onChange={(e) => onValueChange(e)}
               ></TextField>
@@ -167,6 +180,7 @@ const LoginDialog = ({ open, setOpen }) => {
                 name="password"
                 onChange={(e) => onValueChange(e)}
               ></TextField>
+              {error && <LoginError>Please use valid credentials</LoginError>}
               <PolicyText>
                 By continuing, you agree to Flipkart's Terms of Use and Privacy
                 Policy.
