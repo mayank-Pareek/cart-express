@@ -5,7 +5,7 @@ import { getProductsReducer } from "./reducers/productReducer";
 import { getProductDetailsReducer } from "./reducers/productReducer.js";
 const reducer = combineReducers({
   getProducts: getProductsReducer,
-  getProductsDetails: getProductDetailsReducer,
+  getProductDetails: getProductDetailsReducer,
 });
 
 const middleware = [thunk];
