@@ -10,6 +10,12 @@ const Brand = styled(Box)`
   margin-left: 13%;
   line-height: 0px;
 `;
+const Heading = styled(Typography)`
+  color: #fff;
+  font-weight: 600;
+  font-size: 16px;
+  font-style: italic;
+`;
 
 const SubHeading = styled(Typography)`
   font-size: 11px;
@@ -22,20 +28,18 @@ const PlusIcon = styled(`img`)({
   marginLeft: "1px",
 });
 
-const ButtonWrapper=styled(Box)`
-margin: 0 5% 0 auto;
-`
+const ButtonWrapper = styled(Box)`
+  margin: 0 5% 0 auto;
+`;
 
 const Header = () => {
-  const logoURL =
-    "https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/flipkart-plus_8d85f4.png";
   const subURL =
     "https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/plus_aef861.png";
   return (
     <StyledHeader>
       <Toolbar style={{ minHeight: "55px" }}>
         <Brand>
-          <img src={logoURL} alt="flipkart logo" style={{ width: "75px" }} />
+          <Heading>ExpressCart</Heading>
           <Box style={{ display: "flex" }}>
             <SubHeading>
               Explore&nbsp;
@@ -43,7 +47,7 @@ const Header = () => {
                 component="span"
                 style={{ color: "#ffe500", fontWeight: "600" }}
               >
-                Plus
+                Premium
               </Box>
             </SubHeading>
             <PlusIcon src={subURL} alt="Plus icon" />
