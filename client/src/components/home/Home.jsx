@@ -21,7 +21,11 @@ const Home = () => {
       <NavBar />
       <Container>
         <Banner />
-        <Slide products={products} />
+        <Slide products={products} title="Deal of the Day" timer={true} />
+        <Slide products={products} title="Top Selections" timer={false} />
+        <Slide products={products} title="Trending Offers" timer={true} />
+        <Slide products={products} title="Suggested for you" timer={false} />
+        <Slide products={products} title="Shoppers' Choice " timer={false} />
       </Container>
     </>
   );

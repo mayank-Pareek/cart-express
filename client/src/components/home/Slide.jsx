@@ -57,7 +57,7 @@ const ProductText = styled(Typography)`
   margin-top: 5px;
 `;
 
-const Slide = ({ products }) => {
+const Slide = ({ products, title, timer }) => {
   const renderer = ({ hours, minutes, seconds }) => {
     return (
       <Box variant="span">
@@ -69,15 +69,17 @@ const Slide = ({ products }) => {
   return (
     <Component>
       <Deal>
-        <DealText>Deals of the day</DealText>
-        <Timer>
-          <img
-            src="https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/timer_a73398.svg"
-            alt="clock"
-            width={"24px"}
-          />
-          <Countdown date={Date.now() + 8.64e7} renderer={renderer} />
-        </Timer>
+        <DealText>{title}</DealText>
+        {timer && (
+          <Timer>
+            <img
+              src="https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/timer_a73398.svg"
+              alt="clock"
+              width={"24px"}
+            />
+            <Countdown date={Date.now() + 8.64e7} renderer={renderer} />
+          </Timer>
+        )}
         <ViewButton variant="contained" color="primary">
           View all
         </ViewButton>
