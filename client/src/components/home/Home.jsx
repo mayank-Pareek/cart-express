@@ -11,7 +11,6 @@ const Container = styled(Box)`
 `;
 const Home = () => {
   const { products } = useSelector((state) => state.getProducts);
-  console.log(products);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getProducts());
