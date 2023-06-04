@@ -1,13 +1,16 @@
-import { Box, Typography } from "@mui/material";
+import { Box, styled, Typography } from "@mui/material";
 import React from "react";
 import { navData } from "../../constants/data";
-import styled from "@emotion/styled";
 
-const Container = styled(Box)`
-  display: flex;
-  margin: 55px 18px 0px;
-  justify-content: space-between;
-`;
+const Container = styled(Box)(({ theme }) => ({
+  display: "flex",
+  margin: "55px 18px 0px 18px",
+  justifyContent: "space-between",
+  overflow: "overlay",
+  [theme.breakpoints.down("lg")]: {
+    margin: "0px",
+  },
+}));
 
 const Wrapper = styled(Box)`
   padding: 12px 8px;
