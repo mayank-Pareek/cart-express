@@ -3,6 +3,7 @@ import React from "react";
 import Carousel from "react-multi-carousel";
 import Countdown from "react-countdown";
 import "react-multi-carousel/lib/styles.css";
+import { Link } from "react-router-dom";
 
 const responsive = {
   desktop: {
@@ -45,6 +46,11 @@ const ViewButton = styled(Button)`
   background-color: #2874f0;
   border-radius: 2px;
   font-size: 13px;
+`;
+
+const ProductWrapper = styled(Box)`
+  text-align: center;
+  padding: 25px 15px;
 `;
 
 const ProductImage = styled("img")({
@@ -99,14 +105,16 @@ const Slide = ({ products, title, timer }) => {
         containerClass="carousel-container"
       >
         {products.map((product) => (
-          <Box textAlign="center" padding={"25px 15px"}>
-            <ProductImage src={product.url} alt="product" />
-            <ProductText fontWeight={"600"} color={"#212121"}>
-              {product.title.shortTitle}
-            </ProductText>
-            <ProductText color={"green"}>{product.discount}</ProductText>
-            <ProductText color={"#757575"}>{product.tagline}</ProductText>
-          </Box>
+          <Link to={`product/${product.id}`} style={{ textDecoration: "none" }}>
+            <ProductWrapper>
+              <ProductImage src={product.url} alt="product" />
+              <ProductText fontWeight={"600"} color={"#212121"}>
+                {product.title.shortTitle}
+              </ProductText>
+              <ProductText color={"green"}>{product.discount}</ProductText>
+              <ProductText color={"#757575"}>{product.tagline}</ProductText>
+            </ProductWrapper>
+          </Link>
         ))}
       </Carousel>
     </Component>
