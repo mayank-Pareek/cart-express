@@ -11,15 +11,15 @@ import Profile from "./Profile";
 
 //styles
 const Wrapper = styled(Box)`
-align-items: center;
-display: flex;
-margin: 0 3% 0 auto;
-& > button,
-& > p,
-& > div {
-  margin-right: 40px;
-  font-size: 16px;
-}
+  align-items: center;
+  display: flex;
+  margin: 0 3% 0 auto;
+  & > button,
+  & > p,
+  & > div {
+    margin-right: 40px;
+    font-size: 16px;
+  }
 
   @media (max-width: 960px) {
     display: block;
@@ -47,7 +47,7 @@ const LoginButton = styled(Button)`
 
 //Component for Header Buttons
 const CustomButtons = () => {
-  const [isOpen, setOpen] = React.useState(false);
+  const [isOpen, setOpen] = useState(false);
   const { account, setAccount } = useContext(DataContext);
   const openDialog = () => {
     setOpen(true);
