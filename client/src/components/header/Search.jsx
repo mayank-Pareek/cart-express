@@ -4,6 +4,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getProducts } from "../../redux/actions/productActions";
+import { Link } from "react-router-dom";
 
 const Container = styled(Box)`
   background-color: #ffffff;
@@ -56,6 +57,7 @@ const Search = () => {
       <SearchBase
         placeholder="Search for products, brands and more"
         onChange={handleInputChange}
+        value={text}
       />
       <SearchIconWrapper>
         <SearchIcon />
@@ -63,7 +65,18 @@ const Search = () => {
       {text && (
         <ListWrapper>
           {filteredProducts.map((product) => (
-            <ListItem key={product.id}>{product.title.longTitle}</ListItem>
+            <ListItem key={product.id}>
+              <Link
+                to={`/product/${product.id}`}
+                onClick={() => setText("")}
+                style={{
+                  textDecoration: "none",
+                  color: "inherit",
+                }}
+              >
+                {product.title.longTitle}
+              </Link>
+            </ListItem>
           ))}
         </ListWrapper>
       )}
