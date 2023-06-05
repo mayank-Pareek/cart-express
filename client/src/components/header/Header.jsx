@@ -42,7 +42,7 @@ const Header = () => {
     <StyledHeader>
       <Toolbar style={{ minHeight: "55px" }}>
         <Brand to="/">
-          <Heading>ExpressCart</Heading>
+          <Heading>CartExpress</Heading>
           <Box style={{ display: "flex" }}>
             <SubHeading>
               Explore&nbsp;
