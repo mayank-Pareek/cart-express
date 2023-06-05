@@ -1,7 +1,7 @@
 import axios from "axios";
 import * as actionType from "../constants/cartConstant.js";
 
-const URL = "http://localhost:8000";
+const URL = "http://localhost:8080";
 
 export const addToCart = (id, quantity) => async (dispatch) => {
   try {
@@ -16,7 +16,10 @@ export const removeFromCart = (id) => (dispatch) => {
   try {
     dispatch({ type: actionType.REMOVE_FROM_CART, payload: id });
   } catch (error) {
-    dispatch({ type: actionType.REMOVE_FROM_CART_FAIL, payload: error.message });
+    dispatch({
+      type: actionType.REMOVE_FROM_CART_FAIL,
+      payload: error.message,
+    });
   }
 };
 
