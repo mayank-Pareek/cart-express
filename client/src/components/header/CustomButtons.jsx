@@ -2,7 +2,7 @@ import { Box, Button, Typography, styled } from "@mui/material";
 import { ShoppingCart } from "@mui/icons-material";
 import React, { useState, useContext } from "react";
 
-///components
+///custom components
 import LoginDialog from "../login/LoginDialog";
 
 //context
@@ -10,18 +10,25 @@ import { DataContext } from "../../context/DataProvider";
 import Profile from "./Profile";
 
 //styles
-const Wrapper = styled(Box)({
-  alignItems: "center",
-  display: "flex",
-  margin: "0 3% 0 auto",
-  "& *": {
-    marginRight: "40px",
-    fontSize: "16px",
-  },
-  "@media (max-width: 960px)": {
-    display: "block",
-  },
-});
+const Wrapper = styled(Box)`
+  align-items: center;
+  display: flex;
+  margin: 0 3% 0 auto;
+
+  & > * {
+    margin-right: 40px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  @media (max-width: 960px) {
+    display: block;
+
+    & > * {
+      margin: 10px;
+    }
+  }
+`;
 
 const CartContainer = styled(Box)`
   display: flex;
@@ -37,6 +44,8 @@ const LoginButton = styled(Button)`
   padding: 5px 40px;
   text-transform: none;
 `;
+
+//Component for Header Buttons
 const CustomButtons = () => {
   const [isOpen, setOpen] = React.useState(false);
   const { account, setAccount } = useContext(DataContext);
