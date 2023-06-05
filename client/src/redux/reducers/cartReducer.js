@@ -1,6 +1,6 @@
 import * as actionType from "../constants/cartConstant.js";
 
-export const cartReducer = (state={cartItems:[]}, action) => {
+export const cartReducer = (state = { cartItems: [] }, action) => {
   switch (action.type) {
     case actionType.ADD_TO_CART:
       const item = action.payload;
@@ -9,7 +9,7 @@ export const cartReducer = (state={cartItems:[]}, action) => {
         return {
           ...state,
           cartItems: state.cartItems.map((data) =>
-            data.product === exist.product ? item : data
+            data.id === exist.product ? item : data
           ),
         };
       } else {
@@ -22,6 +22,8 @@ export const cartReducer = (state={cartItems:[]}, action) => {
           (product) => product.id !== action.payload
         ),
       };
+    case actionType.CART_RESET:
+      return { ...state, cartItems: [] };
     default:
       return state;
   }
