@@ -10,4 +10,10 @@ export const addToCart = (id, quantity) => async (dispatch) => {
   }
 };
 
-export const removeFromCart = () => {};
+export const removeFromCart = (id) => (dispatch)=>{
+    try{
+        dispatch({type:actionType.REMOVE_FROM_CART,payload:id})
+    }catch(error){
+        dispatch({ type: actionType.REMOVE_FROM_CART_FAIL, payload: error.message });
+    }
+};
