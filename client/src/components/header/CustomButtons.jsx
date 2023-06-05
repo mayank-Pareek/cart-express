@@ -1,7 +1,6 @@
-import { Box, Button, Typography } from "@mui/material";
+import { Box, Button, Typography, styled } from "@mui/material";
 import { ShoppingCart } from "@mui/icons-material";
 import React, { useState, useContext } from "react";
-import styled from "@emotion/styled";
 
 ///components
 import LoginDialog from "../login/LoginDialog";
@@ -11,20 +10,23 @@ import { DataContext } from "../../context/DataProvider";
 import Profile from "./Profile";
 
 //styles
-const Wrapper = styled(Box)`
-  align-items: center;
-  display: flex;
-  margin: 0 3% 0 auto;
-  & > button,
-  & > p,
-  & > div {
-    margin-right: 40px;
-    font-size: 16px;
-  }
-`;
+const Wrapper = styled(Box)({
+  alignItems: "center",
+  display: "flex",
+  margin: "0 3% 0 auto",
+  "& *": {
+    marginRight: "40px",
+    fontSize: "16px",
+  },
+  "@media (max-width: 960px)": {
+    display: "block",
+  },
+});
+
 const CartContainer = styled(Box)`
   display: flex;
 `;
+
 const LoginButton = styled(Button)`
   background-color: #ffffff;
   border-radius: 2px;
@@ -37,14 +39,14 @@ const LoginButton = styled(Button)`
 `;
 const CustomButtons = () => {
   const [isOpen, setOpen] = React.useState(false);
-  const { account,setAccount } = useContext(DataContext);
+  const { account, setAccount } = useContext(DataContext);
   const openDialog = () => {
     setOpen(true);
   };
   return (
     <Wrapper>
       {account ? (
-        <Profile account={account} setAccount={setAccount}/>
+        <Profile account={account} setAccount={setAccount} />
       ) : (
         <LoginButton variant="contained" onClick={openDialog}>
           Login
