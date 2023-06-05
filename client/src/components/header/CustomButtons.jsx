@@ -11,15 +11,15 @@ import Profile from "./Profile";
 
 //styles
 const Wrapper = styled(Box)`
-  align-items: center;
-  display: flex;
-  margin: 0 3% 0 auto;
-
-  & > * {
-    margin-right: 40px;
-    font-size: 16px;
-    cursor: pointer;
-  }
+align-items: center;
+display: flex;
+margin: 0 3% 0 auto;
+& > button,
+& > p,
+& > div {
+  margin-right: 40px;
+  font-size: 16px;
+}
 
   @media (max-width: 960px) {
     display: block;
