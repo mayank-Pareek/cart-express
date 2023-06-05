@@ -1,9 +1,19 @@
-import { Box, Grid, Typography } from "@mui/material";
+import { Box, Grid, Typography, styled } from "@mui/material";
 import { useSelector } from "react-redux";
 
 //custom component
 import CartItem from "./CartItem";
 import PriceDetail from "./PriceDetail";
+
+//styles
+
+const Container = styled(Grid)`
+  padding: 30px 135px;
+`;
+
+const Header = styled(Box)`
+  padding: 15px 24px;
+`;
 
 const Cart = () => {
   const { cartItems } = useSelector((state) => state.cart);
@@ -11,19 +21,19 @@ const Cart = () => {
   return (
     <>
       {cartItems.length ? (
-        <Grid container>
+        <Container container>
           <Grid item lg={9} md={9} sm={12} xs={12}>
-            <Box>
+            <Header>
               <Typography>My Cart ({cartItems.length})</Typography>
-            </Box>
+            </Header>
             {cartItems.map((item) => (
-              <CartItem />
+              <CartItem item={item} />
             ))}
           </Grid>
           <Grid item lg={3} md={3} sm={12} xs={12}>
             <PriceDetail />
           </Grid>
-        </Grid>
+        </Container>
       ) : (
         <div>No items</div>
       )}
