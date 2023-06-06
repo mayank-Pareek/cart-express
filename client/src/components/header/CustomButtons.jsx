@@ -1,5 +1,5 @@
 import { Badge, Box, Button, Typography, styled } from "@mui/material";
-import { ShoppingCart } from "@mui/icons-material";
+import { ShoppingCart, FavoriteBorder } from "@mui/icons-material";
 import React, { useState, useContext } from "react";
 
 ///custom components
@@ -39,6 +39,14 @@ const CartContainer = styled(Link)`
   color: inherit;
 `;
 
+const FavoriteContainer = styled(Link)`
+  display: flex;
+  text-decoration: none;
+  color: inherit;
+  align-items: center;
+  margin-right: 15px;
+`;
+
 const LoginButton = styled(Button)`
   background-color: #ffffff;
   border-radius: 2px;
@@ -67,10 +75,11 @@ const CustomButtons = () => {
           Login
         </LoginButton>
       )}
-      <Typography style={{ marginTop: "3px", width: "135px" }}>
-        Become a Seller
-      </Typography>
-      <Typography style={{ marginTop: "3px" }}>More</Typography>
+      <Typography style={{ marginTop: "3px" }}>Support</Typography>
+      <FavoriteContainer to="/cart">
+        <FavoriteBorder />
+        <Typography style={{ marginTop: "3px" }}>Favorites</Typography>
+      </FavoriteContainer>
       <CartContainer to="/cart">
         <Badge badgeContent={cartItems?.length} color="success">
           <ShoppingCart />
