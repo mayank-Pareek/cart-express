@@ -1,5 +1,5 @@
 import axios from "axios";
-const URL = "http://localhost:8080";
+const URL = "https://cart-express-server.onrender.com";
 export const authenticateSignup = async (data) => {
   try {
     return await axios.post(`${URL}/signup`, data);
