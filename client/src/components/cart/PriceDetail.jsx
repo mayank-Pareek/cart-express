@@ -1,4 +1,5 @@
 import { Box, Typography, styled } from "@mui/material";
+import { useEffect, useState } from "react";
 
 const HeaderWrapper = styled(Box)`
   padding: 15px 24px;
@@ -28,34 +29,24 @@ const Discount = styled(Typography)`
 `;
 
 const PriceDetail = ({ cartItems }) => {
-  const totalPrice = cartItems.reduce(
-    (total, item) => total + item.price.mrp * item.quantity,
-    0
-  );
+  const [price, setPrice] = useState(0);
+  const [discount, setDiscount] = useState(0);
+  const deliveryCharges = 10;
+  const totalAmount = price - discount + deliveryCharges;
+  useEffect(() => {
+    calculateTotalAmount();
+  }, [cartItems]);
 
-  const totalDiscount = cartItems.reduce(
-    (total, item) => total + (item.price.mrp - item.price.cost) * item.quantity,
-    0
-  );
-
-  const BASE_DELIVERY_CHARGE = 5;
-  const PER_ITEM_DELIVERY_CHARGE = 1;
-  const FREE_DELIVERY_THRESHOLD = 100;
-  
-  
-  const calculateDeliveryCharges = (totalPrice, itemCount) => {
-    let deliveryCharges = BASE_DELIVERY_CHARGE;
-    
-    if (totalPrice >= FREE_DELIVERY_THRESHOLD) {
-      deliveryCharges = 0; // Free delivery if order value meets the threshold
-    } else {
-      deliveryCharges += itemCount * PER_ITEM_DELIVERY_CHARGE; // Add per item delivery charges
-    }
-  
-    return deliveryCharges;
+  const calculateTotalAmount = () => {
+    let total = 0,
+      discount = 0;
+    cartItems.map((item) => {
+      total += item.price.mrp;
+      discount += item.price.mrp - item.price.cost;
+    });
+    setPrice(total);
+    setDiscount(discount);
   };
-  const deliveryCharges = calculateDeliveryCharges(totalPrice, cartItems.length);
-  const totalAmount = totalPrice - totalDiscount + deliveryCharges;
 
   return (
     <Box>
@@ -65,11 +56,11 @@ const PriceDetail = ({ cartItems }) => {
       <Container>
         <Typography>
           Price ({cartItems?.length} item)
-          <Price component="span">${totalPrice}</Price>
+          <Price component="span">${price}</Price>
         </Typography>
         <Discount>
           Discount
-          <Price component="span">-${totalDiscount}</Price>
+          <Price component="span">-${discount}</Price>
         </Discount>
         <Typography>
           Delivery Charges
@@ -80,7 +71,7 @@ const PriceDetail = ({ cartItems }) => {
           <Price component="span">${totalAmount}</Price>
         </Typography>
         <Discount>
-          You are saving ${totalDiscount - deliveryCharges} on this order
+          You are saving ${discount - deliveryCharges} on this order
         </Discount>
       </Container>
     </Box>

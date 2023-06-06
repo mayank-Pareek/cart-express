@@ -3,6 +3,7 @@ import { addEllipsis } from "../../utils/utils";
 import ButtonSet from "./ButtonGroup";
 import { removeFromCart } from "../../redux/actions/cartActions.js";
 import { useDispatch } from "react-redux";
+
 const Component = styled(Box)`
   border-top: 1px solid #f0f0f0;
   display: flex;
@@ -30,16 +31,18 @@ const RemoveButton = styled(Button)`
 
 const CartItem = ({ item }) => {
   const dispatch = useDispatch();
+
   const removeItem = (id) => {
     dispatch(removeFromCart(id));
   };
+
   return (
     <Component>
       <LeftComponent>
         <img src={item.url} alt="item" height={"110px"} width={"110px"} />
         <ButtonSet />
       </LeftComponent>
-      <Box margin={"20px"}>
+      <div style={{ margin: "20px" }}>
         <Typography>{addEllipsis(item.title.longTitle)}</Typography>
         <SellerText>Seller: ABC</SellerText>
         <Typography style={{ margin: "20px 0px" }}>
@@ -55,8 +58,8 @@ const CartItem = ({ item }) => {
             {item.price.discount}
           </Box>
         </Typography>
-        <RemoveButton onClick={removeItem(item.id)}>Remove</RemoveButton>
-      </Box>
+        <RemoveButton onClick={() => removeItem(item.id)}>Remove</RemoveButton>
+      </div>
     </Component>
   );
 };
