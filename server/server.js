@@ -13,6 +13,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const PORT = process.env.PORT || 8080;
 dotenv.config({ path: "../.env" });
 app.use("/", Router);
+app.get('/', (req, res) => {
+  res.send('Cart-Express API is listening!');
+});
+
 const initialize = async () => {
   await Connection(process.env.MONGO_URL);
   app.listen(PORT, () => {
