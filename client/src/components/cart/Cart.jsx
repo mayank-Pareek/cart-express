@@ -51,7 +51,7 @@ const Cart = () => {
             </OrderButtonWrapper>
           </Grid>
           <Grid item lg={3} md={3} sm={12} xs={12}>
-            <PriceDetail />
+            <PriceDetail cartItems={cartItems}/>
           </Grid>
         </Container>
       ) : (
