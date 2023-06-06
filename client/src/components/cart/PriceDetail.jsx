@@ -28,18 +28,33 @@ const Discount = styled(Typography)`
 `;
 
 const PriceDetail = ({ cartItems }) => {
-  const totalDiscount = cartItems.reduce(
-    (total, item) => total + (item.price.mrp - item.price.cost) * item.quantity,
-    0
-  );
-
   const totalPrice = cartItems.reduce(
     (total, item) => total + item.price.mrp * item.quantity,
     0
   );
 
-  const deliveryCharges = totalPrice * 0.05;
+  const totalDiscount = cartItems.reduce(
+    (total, item) => total + (item.price.mrp - item.price.cost) * item.quantity,
+    0
+  );
 
+  const BASE_DELIVERY_CHARGE = 5;
+  const PER_ITEM_DELIVERY_CHARGE = 1;
+  const FREE_DELIVERY_THRESHOLD = 100;
+  
+  
+  const calculateDeliveryCharges = (totalPrice, itemCount) => {
+    let deliveryCharges = BASE_DELIVERY_CHARGE;
+    
+    if (totalPrice >= FREE_DELIVERY_THRESHOLD) {
+      deliveryCharges = 0; // Free delivery if order value meets the threshold
+    } else {
+      deliveryCharges += itemCount * PER_ITEM_DELIVERY_CHARGE; // Add per item delivery charges
+    }
+  
+    return deliveryCharges;
+  };
+  const deliveryCharges = calculateDeliveryCharges(totalPrice, cartItems.length);
   const totalAmount = totalPrice - totalDiscount + deliveryCharges;
 
   return (
@@ -64,7 +79,9 @@ const PriceDetail = ({ cartItems }) => {
           Total Amount
           <Price component="span">${totalAmount}</Price>
         </Typography>
-        <Discount>You are saving ${totalDiscount} on this order</Discount>
+        <Discount>
+          You are saving ${totalDiscount - deliveryCharges} on this order
+        </Discount>
       </Container>
     </Box>
   );
