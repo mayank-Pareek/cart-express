@@ -1,6 +1,6 @@
 import axios from "axios";
 import * as actionTypes from "../constants/productConstants.js";
-const URL = "https://cart-express-server.onrender.com";
+const URL = "https://cart-express-api.herokuapp.com";
 export const getProducts = () => async (dispatch) => {
   try {
     const { data } = await axios.get(`${URL}/products`);

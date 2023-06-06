@@ -1,5 +1,5 @@
 import axios from "axios";
-const URL = "https://cart-express-server.onrender.com";
+const URL = "https://cart-express-api.herokuapp.com";
 export const authenticateSignup = async (data) => {
   try {
     return await axios.post(`${URL}/signup`, data);
