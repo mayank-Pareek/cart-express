@@ -20,6 +20,7 @@ const Wrapper = styled(Box)`
   & > div {
     margin-right: 40px;
     font-size: 16px;
+    cursor: pointer;
   }
 
   @media (max-width: 960px) {
@@ -31,8 +32,10 @@ const Wrapper = styled(Box)`
   }
 `;
 
-const CartContainer = styled(Box)`
+const CartContainer = styled(Link)`
   display: flex;
+  text-decoration: none;
+  color: inherit;
 `;
 
 const LoginButton = styled(Button)`
@@ -66,12 +69,10 @@ const CustomButtons = () => {
         Become a Seller
       </Typography>
       <Typography style={{ marginTop: "3px" }}>More</Typography>
-      <Link to="/cart">
-        <CartContainer>
-          <ShoppingCart />
-          <Typography>Cart</Typography>
-        </CartContainer>
-      </Link>
+      <CartContainer to="/cart">
+        <ShoppingCart />
+        <Typography>Cart</Typography>
+      </CartContainer>
 
       <LoginDialog open={isOpen} setOpen={setOpen} />
     </Wrapper>

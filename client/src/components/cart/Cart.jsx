@@ -5,16 +5,28 @@ import { useSelector } from "react-redux";
 import CartItem from "./CartItem";
 import PriceDetail from "./PriceDetail";
 import EmptyCart from "./EmptyCart";
+
 //styles
 
-const Container = styled(Grid)`
-  padding: 30px 135px;
-`;
+const Container = styled(Grid)(({ theme }) => ({
+  padding: "30px 100px",
+
+  [theme.breakpoints.down("md")]: {
+    padding: "15px 0px",
+  },
+}));
 
 const Header = styled(Box)`
   padding: 15px 24px;
   background-color: #ffffff;
 `;
+
+const ItemContainer = styled(Grid)(({ theme }) => ({
+  paddingRight: "15px",
+  [theme.breakpoints.down("md")]: {
+    marginBottom: "15px",
+  },
+}));
 
 const OrderButtonWrapper = styled(Box)`
   padding: 16px 22px;
@@ -39,7 +51,7 @@ const Cart = () => {
     <>
       {cartItems.length ? (
         <Container container>
-          <Grid item lg={9} md={9} sm={12} xs={12}>
+          <ItemContainer item lg={8} md={8} sm={12} xs={12}>
             <Header>
               <Typography>My Cart ({cartItems.length})</Typography>
             </Header>
@@ -49,10 +61,10 @@ const Cart = () => {
             <OrderButtonWrapper>
               <OrderButton>Place Order</OrderButton>
             </OrderButtonWrapper>
-          </Grid>
-          <Grid item lg={3} md={3} sm={12} xs={12}>
+          </ItemContainer>
+          <ItemContainer item lg={4} md={4} sm={12} xs={12}>
             <PriceDetail cartItems={cartItems} />
-          </Grid>
+          </ItemContainer>
         </Container>
       ) : (
         <EmptyCart />
