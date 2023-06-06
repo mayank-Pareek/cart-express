@@ -7,9 +7,9 @@ const insertDefaultData = async () => {
       const existingProduct = await Product.findOne({ id: product.id });
       if (!existingProduct) {
         await Product.create(product);
+        console.log("New data inserted successfully");
       }
     }
-    console.log("Default data inserted successfully.");
   } catch (error) {
     console.log("Error inserting default data:", error.message);
   }
