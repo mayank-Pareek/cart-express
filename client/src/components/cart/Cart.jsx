@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 //custom component
 import CartItem from "./CartItem";
 import PriceDetail from "./PriceDetail";
-
+import EmptyCart from "./EmptyCart";
 //styles
 
 const Container = styled(Grid)`
@@ -51,11 +51,11 @@ const Cart = () => {
             </OrderButtonWrapper>
           </Grid>
           <Grid item lg={3} md={3} sm={12} xs={12}>
-            <PriceDetail cartItems={cartItems}/>
+            <PriceDetail cartItems={cartItems} />
           </Grid>
         </Container>
       ) : (
-        <div>No items</div>
+        <EmptyCart />
       )}
     </>
   );
