@@ -1,6 +1,8 @@
 import { Box, Button, Typography, styled } from "@mui/material";
 import { addEllipsis } from "../../utils/utils";
 import ButtonSet from "./ButtonGroup";
+import { removeFromCart } from "../../redux/actions/cartActions.js";
+import { useDispatch } from "react-redux";
 const Component = styled(Box)`
   border-top: 1px solid #f0f0f0;
   display: flex;
@@ -27,6 +29,10 @@ const RemoveButton = styled(Button)`
 `;
 
 const CartItem = ({ item }) => {
+  const dispatch = useDispatch();
+  const removeItem = (id) => {
+    dispatch(removeFromCart(id));
+  };
   return (
     <Component>
       <LeftComponent>
@@ -49,7 +55,7 @@ const CartItem = ({ item }) => {
             {item.price.discount}
           </Box>
         </Typography>
-        <RemoveButton>Remove</RemoveButton>
+        <RemoveButton onClick={removeItem(item.id)}>Remove</RemoveButton>
       </Box>
     </Component>
   );
