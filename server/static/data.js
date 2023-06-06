@@ -6,17 +6,17 @@ export const products = [
       "https://rukminim1.flixcart.com/image/416/416/kapoo7k0/electric-kettle/p/6/s/pigeon-favourite-original-imafs7xhj5uwgrh4.jpeg?q=70",
     title: {
       shortTitle: "Home & Kitchen",
-      longTitle: "Pigeon FAVOURITE Electric Kettle  (1.5 L, Silver, Black)",
+      longTitle: "Maple Leaf Electric Kettle  (1.5 L, Silver, Black)",
     },
     price: {
-      mrp: 1195,
-      cost: 625,
-      discount: "47%",
+      mrp: 79,
+      cost: 49,
+      discount: "62%",
     },
     quantity: 1,
     description:
-      "This electric kettle from Pigeon will soon become a travelers best friend, a hostelite saviour and an answer to all the midnight cravings. With this handy appliance, you can boil water and use it to make instant noodles, packet soup, coffee and green tea.",
-    discount: "Extra 10% Off",
+      "This electric kettle from Maple Leaf is perfect for your kitchen. It boils water quickly and efficiently, making it ideal for making tea, coffee, and other hot beverages. The sleek design and durable construction make it a must-have for every home.",
+    discount: "Limited Time Offer",
     tagline: "Deal of the day",
   },
   {
@@ -26,18 +26,18 @@ export const products = [
       "https://rukminim1.flixcart.com/image/416/416/kl6wx3k0/sandwich-maker/8/r/d/sandwich-01-flipkart-smartbuy-original-imagydds4zthxt8z.jpeg?q=70",
     title: {
       shortTitle: "Sandwich Makers",
-      longTitle: "Flipkart SmartBuy Sandwich 01 Grill  (Black)",
+      longTitle: "Canadian Classics Sandwich Maker  (Black)",
     },
     price: {
-      mrp: 1499,
-      cost: 899,
-      discount: "40%",
+      mrp: 49,
+      cost: 34,
+      discount: "30%",
     },
     quantity: 1,
     description:
       "This non-stick sandwich toaster .easy to use and very handy. Directly hold over flame to make tasty toasts and toasted sandwiches. Specially designed by keeping your needs in mind, the sandwich maker makes whatever youre doing simpler, smarter and better",
-    discount: "From 99+5% Off",
-    tagline: "Pestige, Nova & more",
+    discount: "30% Off",
+    tagline: "Best Value",
   },
   {
     id: "product3",
@@ -46,13 +46,12 @@ export const products = [
       "https://rukminim1.flixcart.com/image/416/416/kohigsw0/resistance-tube/c/s/e/new-adjustable-single-resistance-tube-multicolor-na-ajro-deal-original-imag2xg88mhmwxz5.jpeg?q=70",
     title: {
       shortTitle: "Fitness Gear",
-      longTitle:
-        "AJRO DEAL New Adjustable Single Resistance Tube (Multicolor) Resistance Tube  (Multicolor)",
+      longTitle: "CanadaFit Resistance Bands Set with Handles  (5-Piece)",
     },
     price: {
-      mrp: 499,
-      cost: 166,
-      discount: "66%",
+      mrp: 30,
+      cost: 20,
+      discount: "33%",
     },
     quantity: 1,
     description:
@@ -67,16 +66,16 @@ export const products = [
       "https://rukminim1.flixcart.com/image/416/416/kll7bm80/smartwatch/c/1/n/43-mo-sw-sense-500-android-ios-molife-original-imagyzyycnpujyjh.jpeg?q=70",
     title: {
       shortTitle: "Smart Watches",
-      longTitle: "Molife Sense 500 Smartwatch  (Black Strap, Freesize)",
+      longTitle: "Canadawatch Versa 3 Smartwatch  (Black)",
     },
     price: {
-      mrp: 6999,
-      cost: 4049,
-      discount: "42%",
+      mrp: 180,
+      cost: 140,
+      discount: "22%",
     },
     quantity: 1,
     description:
-      "The Molife Sense 500, a brilliant smartwatch with a beautiful large display. Say hello to the infinity 1.7-inch display with 2.5D curved edges. Thanks to seamless Bluetooth 5.0 connectivity, you wont have to keep waiting. Bring a change to your outfit every day with changeable straps. A splash of color every day keeps the boredom away.",
+      "Stay connected and track your fitness goals with the Canadawatch Versa 3 Smartwatch. This sleek and stylish smartwatch offers advanced health and fitness features, including heart rate monitoring, sleep tracking, and built-in GPS. With its long battery life and customizable watch faces, it's the perfect companion for your active lifestyle.",
     discount: "Grab Now",
     tagline: "Best Seller",
   },
@@ -87,17 +86,17 @@ export const products = [
       "https://rukminim1.flixcart.com/image/416/416/k3uhhu80/hair-dryer/n/m/t/nova-2800-w-professional-nhp-8220-original-imafmvwfhmzsxdrw.jpeg?q=70",
     title: {
       shortTitle: "Trimmers, Dryers & more",
-      longTitle: "Nova Professional NHP 8220 Hair Dryer  (1800 W, Multicolor)",
+      longTitle: "Professional NHP 8220 Hair Dryer  (1800 W, Multicolor)",
     },
     price: {
-      mrp: 1899,
-      cost: 1124,
-      discount: "40%",
+      mrp: 118,
+      cost: 29,
+      discount: "75%",
     },
     quantity: 1,
     description: "",
-    discount: "From ₹499",
-    tagline: "Kubra, Nova & more",
+    discount: "Top Offer",
+    tagline: "Deal of the day",
   },
   {
     id: "product6",
@@ -110,9 +109,9 @@ export const products = [
         "Portable 300 mm Ultra High Speed 3 Blade Table Fan  (Black, Pack of 1)",
     },
     price: {
-      mrp: 2250,
-      cost: 1199,
-      discount: "46%",
+      mrp: 49,
+      cost: 29,
+      discount: "41%",
     },
     quantity: 1,
     description:
@@ -128,17 +127,17 @@ export const products = [
     title: {
       shortTitle: "Headphones",
       longTitle:
-        "boAt Rockerz 235v2 with ASAP charging Version 5.0 Bluetooth Headset ",
+        "Beatz 235v2 with ASAP charging Version 5.0 Bluetooth Headset ",
     },
     price: {
-      mrp: 2990,
-      cost: 1199,
-      discount: "59%",
+      mrp: 55,
+      cost: 40,
+      discount: "28%",
     },
     quantity: 1,
     description:
       "Let music brighten up your mood anytime, anywhere with the boAt 235v2 Fast Charging Bluetooth Headset. This Bluetooth headset features a Call Vibration Alert, a Fast Charging Technology, and Easy Access Controls to listen to and manage your favorite music with ease.",
-    discount: "Minimum 50% Off",
+    discount: "Minimum 20% Off",
     tagline: "Grab Now!",
   },
 ];
