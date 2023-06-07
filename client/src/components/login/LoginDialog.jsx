@@ -22,12 +22,7 @@ const LoginBanner = styled(Box)`
   background: #2874f0 url(${loginBanner}) center/cover no-repeat;
   background-size: 100% 100%;
   height: 100%;
-  padding: 45px 35px;
-  width: 33%;
-  color: #fff;
-  & > h5 {
-    font-weight: 600;
-  }
+  width: 50%;
 `;
 
 const LoginWrapper = styled(Box)`
@@ -42,40 +37,17 @@ const LoginWrapper = styled(Box)`
   text-align: center;
 `;
 
-const LoginButton = styled(Button)`
+const StyledButton = styled(Button)`
   text-transform: none;
-  background-color: #fb641b;
+  background-color: #ffb300;
   color: #fff;
   height: 48px;
-  border-radius: 2px;
-`;
-
-const OtpButton = styled(Button)`
-  text-transform: none;
-  background-color: #fb641b;
-  color: #fff;
-  height: 48px;
-  border-radius: 2px;
-`;
-const RegisterButton = styled(Button)`
-  text-transform: none;
-  background-color: #fb641b;
-  color: #fff;
-  height: 48px;
-  border-radius: 2px;
 `;
 
 const PolicyText = styled(Typography)`
   font-size: 12px;
   color: #878787;
   text-align: left;
-`;
-
-const CreateAccountText = styled(Typography)`
-  font-size: 14px;
-  color: #2874f0;
-  font-weight: 600;
-  cursor: pointer;
 `;
 
 const LoginError = styled(Typography)`
@@ -97,13 +69,9 @@ const LoginDialog = ({ open, setOpen }) => {
   const accountState = {
     login: {
       state: "login",
-      heading: "Login",
-      subHeading: "Get access to your Orders, Wishlist and Recommendations",
     },
     register: {
       state: "register",
-      heading: "Looks like you're new here!",
-      subHeading: "Sign up with your mobile number to get started",
     },
   };
   const signupInitialValues = {
@@ -162,9 +130,7 @@ const LoginDialog = ({ open, setOpen }) => {
     >
       <DialogContainer>
         <Box style={{ display: "flex", height: "100%" }}>
-          <LoginBanner>
-            
-          </LoginBanner>
+          <LoginBanner></LoginBanner>
           {account.state === "login" ? (
             <LoginWrapper>
               <TextField
@@ -181,17 +147,15 @@ const LoginDialog = ({ open, setOpen }) => {
               ></TextField>
               {error && <LoginError>Please use valid credentials</LoginError>}
               <PolicyText>
-                By continuing, you agree to Flipkart's Terms of Use and Privacy
-                Policy.
+                By continuing, you agree to our Terms of Use and Privacy Policy.
               </PolicyText>
-              <LoginButton onClick={loginUser} variant="contained">
+              <StyledButton onClick={loginUser} variant="contained">
                 Login
-              </LoginButton>
+              </StyledButton>
               <Typography>OR</Typography>
-              <OtpButton variant="contained">Request OTP</OtpButton>
-              <CreateAccountText onClick={toggleDialog}>
-                New to Flipkart? Create an account
-              </CreateAccountText>
+              <StyledButton variant="contained" onClick={toggleDialog}>
+                Sign Up
+              </StyledButton>
             </LoginWrapper>
           ) : (
             <LoginWrapper>
@@ -231,12 +195,12 @@ const LoginDialog = ({ open, setOpen }) => {
                 label="Enter Phone Number"
                 onChange={(e) => inputChange(e)}
               ></TextField>
-              <RegisterButton variant="contained" onClick={registerUser}>
+              <StyledButton variant="contained" onClick={registerUser}>
                 Continue
-              </RegisterButton>
-              <LoginButton onClick={toggleDialog}>
+              </StyledButton>
+              <StyledButton variant="contained" onClick={toggleDialog}>
                 Existing User? Log in
-              </LoginButton>
+              </StyledButton>
             </LoginWrapper>
           )}
         </Box>
