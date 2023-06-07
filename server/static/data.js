@@ -137,7 +137,7 @@ export const products = [
     },
     quantity: 1,
     description:
-      "Let music brighten up your mood anytime, anywhere with the boAt 235v2 Fast Charging Bluetooth Headset. This Bluetooth headset features a Call Vibration Alert, a Fast Charging Technology, and Easy Access Controls to listen to and manage your favorite music with ease.",
+      "Let music brighten up your mood anytime, anywhere with Fast Charging Bluetooth Headset. This Bluetooth headset features a Call Vibration Alert, a Fast Charging Technology, and Easy Access Controls to listen to and manage your favorite music with ease.",
     discount: "Minimum 20% Off",
     tagline: "Grab Now!",
   },
