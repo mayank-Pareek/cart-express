@@ -10,15 +10,17 @@ import {
 
 import { authenticateSignup, authenticateLogin } from "../../services/api";
 import { DataContext } from "../../context/DataProvider";
+
+import loginBanner from "../../assets/images/Wavy_Tech-28_Single-10.jpg";
+
 const DialogContainer = styled(Box)`
   height: 70vh;
   width: 90vh;
 `;
 
 const LoginBanner = styled(Box)`
-  background: #2874f0
-    url(https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/login_img_c4a81e.png)
-    center 85% no-repeat;
+  background: #2874f0 url(${loginBanner}) center/cover no-repeat;
+  background-size: 100% 100%;
   height: 100%;
   padding: 45px 35px;
   width: 33%;
@@ -161,10 +163,7 @@ const LoginDialog = ({ open, setOpen }) => {
       <DialogContainer>
         <Box style={{ display: "flex", height: "100%" }}>
           <LoginBanner>
-            <Typography variant="h5">{account.heading}</Typography>
-            <Typography style={{ marginTop: "20px" }}>
-              {account.subHeading}
-            </Typography>
+            
           </LoginBanner>
           {account.state === "login" ? (
             <LoginWrapper>
