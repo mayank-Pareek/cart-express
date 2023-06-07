@@ -41,23 +41,24 @@ export const products = [
   },
   {
     id: "product3",
-    url: "https://rukminim1.flixcart.com/image/150/150/kohigsw0/resistance-tube/c/s/e/new-adjustable-single-resistance-tube-multicolor-na-ajro-deal-original-imag2xg88mhmwxz5.jpeg?q=70",
+    url: "https://m.media-amazon.com/images/I/41VNA9JkzmL._AC_UF452,452_FMjpg_.jpg",
     detailUrl:
-      "https://rukminim1.flixcart.com/image/416/416/kohigsw0/resistance-tube/c/s/e/new-adjustable-single-resistance-tube-multicolor-na-ajro-deal-original-imag2xg88mhmwxz5.jpeg?q=70",
+      "https://m.media-amazon.com/images/I/81-32KhG0TL._AC_SL1500_.jpg",
     title: {
-      shortTitle: "Fitness Gear",
-      longTitle: "CanadaFit Resistance Bands Set with Handles  (5-Piece)",
+      shortTitle: "Women's Floral Summer Dress",
+      longTitle:
+        "STYLEWORD Women's Floral Summer Dress V Neck Spaghetti Strap Casual Dress with Pockets ",
     },
     price: {
-      mrp: 30,
-      cost: 20,
-      discount: "33%",
+      mrp: 31,
+      cost: 26,
+      discount: "15%",
     },
     quantity: 1,
     description:
-      "This unique product can tone your back muscles, reduce belly fat, improve blood circulation and also improves your body posture. It increases the stamina, energy and vitality of the body. The elastic resistance of the rubber training rope can be used to train and exercise in whichever way you want, according to your physical needs.",
-    discount: "Upto 70% Off",
-    tagline: "Deal of the Day",
+      "Made of breathable and skin-friendly fabric, the strap design could make you feel more relaxed and comfortable in hot days. Designed with two pockets for your essentials. Perfect for daily wear, vacation, beach, party, cocktail or other activities.",
+    discount: "Upto 15% Off",
+    tagline: "Grab Now!",
   },
   {
     id: "product4",
@@ -220,26 +221,5 @@ export const products = [
       "Completely rebuilt from the ground up using Naughty Dog’s latest PS5 engine technology to improve every visual detail, The Last of Us experience has been faithfully enhanced with more realistic lighting and atmosphere, more intricate environments and creative reimaginings of familiar spaces.",
     discount: "25% Off",
     tagline: "New Offer",
-  },
-  {
-    id: "product12",
-    url: "https://m.media-amazon.com/images/I/41VNA9JkzmL._AC_UF452,452_FMjpg_.jpg",
-    detailUrl:
-      "https://m.media-amazon.com/images/I/81-32KhG0TL._AC_SL1500_.jpg",
-    title: {
-      shortTitle: "Women's Floral Summer Dress",
-      longTitle:
-        "STYLEWORD Women's Floral Summer Dress V Neck Spaghetti Strap Casual Dress with Pockets ",
-    },
-    price: {
-      mrp: 31,
-      cost: 26,
-      discount: "15%",
-    },
-    quantity: 1,
-    description:
-      "Made of breathable and skin-friendly fabric, the strap design could make you feel more relaxed and comfortable in hot days. Designed with two pockets for your essentials. Perfect for daily wear, vacation, beach, party, cocktail or other activities.",
-    discount: "Upto 15% Off",
-    tagline: "Grab Now!",
   },
 ];
