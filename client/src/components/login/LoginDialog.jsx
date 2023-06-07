@@ -19,8 +19,6 @@ const DialogContainer = styled(Box)`
 `;
 
 const LoginBanner = styled("img")({
-  // background: #2874f0 url(${loginBanner}) center/cover no-repeat;
-  // background-size: 100% 100%;
   height: "100%",
   width: "50%",
 });
