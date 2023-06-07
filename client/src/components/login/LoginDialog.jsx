@@ -18,12 +18,12 @@ const DialogContainer = styled(Box)`
   width: 90vh;
 `;
 
-const LoginBanner = styled(Box)`
-  background: #2874f0 url(${loginBanner}) center/cover no-repeat;
-  background-size: 100% 100%;
-  height: 100%;
-  width: 50%;
-`;
+const LoginBanner = styled("img")({
+  // background: #2874f0 url(${loginBanner}) center/cover no-repeat;
+  // background-size: 100% 100%;
+  height: "100%",
+  width: "50%",
+});
 
 const LoginWrapper = styled(Box)`
   display: flex;
@@ -130,7 +130,10 @@ const LoginDialog = ({ open, setOpen }) => {
     >
       <DialogContainer>
         <Box style={{ display: "flex", height: "100%" }}>
-          <LoginBanner></LoginBanner>
+          <LoginBanner
+            src={loginBanner}
+            alt="Image by vectorjuice on Freepik"
+          />
           {account.state === "login" ? (
             <LoginWrapper>
               <TextField
