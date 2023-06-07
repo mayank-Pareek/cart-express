@@ -1,5 +1,5 @@
 import { Box, Typography, styled } from "@mui/material";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 const HeaderWrapper = styled(Box)`
   padding: 15px 24px;
@@ -33,20 +33,21 @@ const PriceDetail = ({ cartItems }) => {
   const [discount, setDiscount] = useState(0);
   const deliveryCharges = 10;
   const totalAmount = price - discount + deliveryCharges;
-  useEffect(() => {
-    calculateTotalAmount();
-  }, [cartItems]);
 
-  const calculateTotalAmount = () => {
-    let total = 0,
-      discount = 0;
-    cartItems.map((item) => {
+  const calculateTotalAmount = useCallback(() => {
+    let total = 0;
+    let discount = 0;
+    cartItems.forEach((item) => {
       total += item.price.mrp;
       discount += item.price.mrp - item.price.cost;
     });
     setPrice(total);
     setDiscount(discount);
-  };
+  }, [cartItems]);
+
+  useEffect(() => {
+    calculateTotalAmount();
+  }, [cartItems, calculateTotalAmount]);
 
   return (
     <Box>
