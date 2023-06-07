@@ -56,7 +56,7 @@ const Cart = () => {
               <Typography>My Cart ({cartItems.length})</Typography>
             </Header>
             {cartItems.map((item) => (
-              <CartItem item={item} />
+              <CartItem key={item.id} item={item} />
             ))}
             <OrderButtonWrapper>
               <OrderButton>Place Order</OrderButton>

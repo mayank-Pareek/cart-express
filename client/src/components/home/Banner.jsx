@@ -43,7 +43,7 @@ const Banner = () => {
       slidesToSlide={1}
     >
       {bannerData.map((item) => (
-        <Image src={item.url} alt="product banner" />
+        <Image key={item.id} src={item.url} alt="product banner" />
       ))}
     </Carousel>
   );

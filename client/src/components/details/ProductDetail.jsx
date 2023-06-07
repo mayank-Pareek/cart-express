@@ -62,13 +62,11 @@ const ProductDetail = ({ product }) => {
       <SmallText>
         <Typography>
           <StyledOffer />
-          Exclusive offer for TD Bank customers: Enjoy 15% off on this product
-          with promo code TD15!
+          Enjoy 15% off on this product with promo code TD15!
         </Typography>
         <Typography>
           <StyledOffer />
-          Earn double Air Miles when you use your BMO Mastercard for this
-          purchase. Collect rewards faster!
+          Earn double Air Miles when you use your BMO Mastercard.
         </Typography>
         <Typography>
           <StyledOffer />
@@ -80,36 +78,38 @@ const ProductDetail = ({ product }) => {
         </Typography>
       </SmallText>
       <Table>
-        <ColumnText>
-          <TableCell
-            style={{
-              color: "#878787",
-            }}
-          >
-            Delivery
-          </TableCell>
-          <TableCell
-            style={{
-              fontWeight: "600",
-            }}
-          >
-            Delivery by {date.toDateString()}
-          </TableCell>
-        </ColumnText>
-        <ColumnText>
-          <TableCell style={{ color: "#878787" }}>Seller</TableCell>
-          <TableCell style={{ fontStyle: "italic", cursor: "pointer" }}>
-            ABC Company
-          </TableCell>
-        </ColumnText>
-        <ColumnText>
-          <TableCell style={{ color: "#878787" }}>Return Policy</TableCell>
-          <TableCell>30-day hassle-free returns</TableCell>
-        </ColumnText>
-        <ColumnText>
-          <TableCell style={{ color: "#878787" }}>Description</TableCell>
-          <TableCell>{product.description}</TableCell>
-        </ColumnText>
+        <tbody>
+          <ColumnText>
+            <TableCell
+              style={{
+                color: "#878787",
+              }}
+            >
+              Delivery
+            </TableCell>
+            <TableCell
+              style={{
+                fontWeight: "600",
+              }}
+            >
+              Delivery by {date.toDateString()}
+            </TableCell>
+          </ColumnText>
+          <ColumnText>
+            <TableCell style={{ color: "#878787" }}>Seller</TableCell>
+            <TableCell style={{ fontStyle: "italic", cursor: "pointer" }}>
+              ABC Company
+            </TableCell>
+          </ColumnText>
+          <ColumnText>
+            <TableCell style={{ color: "#878787" }}>Return Policy</TableCell>
+            <TableCell>30-day hassle-free returns</TableCell>
+          </ColumnText>
+          <ColumnText>
+            <TableCell style={{ color: "#878787" }}>Description</TableCell>
+            <TableCell>{product.description}</TableCell>
+          </ColumnText>
+        </tbody>
       </Table>
     </>
   );

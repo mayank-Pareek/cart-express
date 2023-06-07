@@ -5,7 +5,7 @@ import { navData } from "../../constants/data";
 const Container = styled(Box)(({ theme }) => ({
   display: "flex",
   margin: "55px 0px 0px 0px",
-  padding:"0px 10px",
+  padding: "0px 10px",
   backgroundColor: "#ffffff",
   justifyContent: "space-between",
   overflow: "overlay",
@@ -28,8 +28,8 @@ const Text = styled(Typography)`
 const NavBar = () => {
   return (
     <Container>
-      {navData.map((item) => (
-        <Wrapper>
+      {navData.map((item, index) => (
+        <Wrapper key={index}>
           <img src={item.url} width="64px" alt="product category" />
           <Text>{item.text}</Text>
         </Wrapper>
