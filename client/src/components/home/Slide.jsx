@@ -28,25 +28,39 @@ const Deal = styled(Box)`
   padding: 15px 20px;
   display: flex;
 `;
-const Timer = styled(Box)`
-  display: flex;
-  align-items: center;
-  margin-left: 10px;
-  color: #7f7f7f;
-`;
+const Timer = styled(Box)(({ theme }) => ({
+  display: "flex",
+  alignItems: "center",
+  marginLeft: "10px",
+  color: "#7f7f7f",
+  [theme.breakpoints.down("sm")]: {
+    marginLeft: "0px",
+    fontSize:"12px",
+    "& > img": {
+      width: "14px",
+    },
+  },
+}));
+const DealText = styled(Typography)(({ theme }) => ({
+  fontSize: "22px",
+  fontWeight: "600",
+  marginRight: "22px",
+  lineHeight: "32px",
+  [theme.breakpoints.down("sm")]: {
+    fontSize: "16px",
+    marginRight: "4px",
+    lineHeight: "32px",
+  },
+}));
 
-const DealText = styled(Typography)`
-  font-size: 22px;
-  font-weight: 600;
-  margin-right: 22px;
-  line-height: 32px;
-`;
-const ViewButton = styled(Button)`
-  margin-left: auto;
-  background-color: #2874f0;
-  border-radius: 2px;
-  font-size: 13px;
-`;
+const ViewButton = styled(Button)(({ theme }) => ({
+  marginLeft: "auto",
+  backgroundColor: "#2874f0",
+  fontSize: "13px",
+  [theme.breakpoints.down("sm")]: {
+    fontSize: "10px",
+  },
+}));
 
 const ProductWrapper = styled(Box)`
   text-align: center;

@@ -21,8 +21,10 @@ const Image = styled("img")(({ theme }) => ({
   width: "100%",
   height: "320px",
   [theme.breakpoints.down("md")]: {
-    height: "190px",
-    objectFit: "cover",
+    height: "190px"
+  },
+  [theme.breakpoints.down("sm")]: {
+    height: "120px"
   },
 }));
 
